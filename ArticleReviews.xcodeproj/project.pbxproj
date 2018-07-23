@@ -22,6 +22,8 @@
 		49D052F2210642980019A6F3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D052F1210642980019A6F3 /* RxSwift.framework */; };
 		49D052F4210642A40019A6F3 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D052F3210642A40019A6F3 /* RxAlamofire.framework */; };
 		49D052F6210642C20019A6F3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D052F5210642C20019A6F3 /* Alamofire.framework */; };
+		49D052F9210645DB0019A6F3 /* ArticleWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D052F8210645DB0019A6F3 /* ArticleWebServiceProtocol.swift */; };
+		49D052FB210646740019A6F3 /* ArticleWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D052FA210646740019A6F3 /* ArticleWebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		49D052F1210642980019A6F3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
 		49D052F3210642A40019A6F3 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxAlamofire.framework; sourceTree = "<group>"; };
 		49D052F5210642C20019A6F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		49D052F8210645DB0019A6F3 /* ArticleWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebServiceProtocol.swift; sourceTree = "<group>"; };
+		49D052FA210646740019A6F3 /* ArticleWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 		49D052DC21063CF70019A6F3 /* ArticleWebService */ = {
 			isa = PBXGroup;
 			children = (
+				49D052F8210645DB0019A6F3 /* ArticleWebServiceProtocol.swift */,
+				49D052FA210646740019A6F3 /* ArticleWebService.swift */,
 			);
 			path = ArticleWebService;
 			sourceTree = "<group>";
@@ -315,8 +321,10 @@
 				49D052D921063B0E0019A6F3 /* Articles.swift in Sources */,
 				49D052E721063D990019A6F3 /* InternetConnectionHandler.swift in Sources */,
 				49D052E521063D750019A6F3 /* InternetConnectionError.swift in Sources */,
+				49D052FB210646740019A6F3 /* ArticleWebService.swift in Sources */,
 				49D052C52106388E0019A6F3 /* ArticleReviews.xcdatamodeld in Sources */,
 				49D052DE21063D250019A6F3 /* RESTError.swift in Sources */,
+				49D052F9210645DB0019A6F3 /* ArticleWebServiceProtocol.swift in Sources */,
 				49D052ED21063ECA0019A6F3 /* ReviewsModel.swift in Sources */,
 				49D052BD2106388E0019A6F3 /* AppDelegate.swift in Sources */,
 			);
