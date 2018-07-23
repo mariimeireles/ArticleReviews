@@ -18,6 +18,10 @@
 		49D052E521063D750019A6F3 /* InternetConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D052E421063D750019A6F3 /* InternetConnectionError.swift */; };
 		49D052E721063D990019A6F3 /* InternetConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D052E621063D990019A6F3 /* InternetConnectionHandler.swift */; };
 		49D052ED21063ECA0019A6F3 /* ReviewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D052EC21063ECA0019A6F3 /* ReviewsModel.swift */; };
+		49D052F02106425F0019A6F3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D052EF2106425F0019A6F3 /* RxCocoa.framework */; };
+		49D052F2210642980019A6F3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D052F1210642980019A6F3 /* RxSwift.framework */; };
+		49D052F4210642A40019A6F3 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D052F3210642A40019A6F3 /* RxAlamofire.framework */; };
+		49D052F6210642C20019A6F3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D052F5210642C20019A6F3 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		49D052E421063D750019A6F3 /* InternetConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionError.swift; sourceTree = "<group>"; };
 		49D052E621063D990019A6F3 /* InternetConnectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionHandler.swift; sourceTree = "<group>"; };
 		49D052EC21063ECA0019A6F3 /* ReviewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsModel.swift; sourceTree = "<group>"; };
+		49D052EF2106425F0019A6F3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
+		49D052F1210642980019A6F3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
+		49D052F3210642A40019A6F3 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxAlamofire.framework; sourceTree = "<group>"; };
+		49D052F5210642C20019A6F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D052F2210642980019A6F3 /* RxSwift.framework in Frameworks */,
+				49D052F02106425F0019A6F3 /* RxCocoa.framework in Frameworks */,
+				49D052F4210642A40019A6F3 /* RxAlamofire.framework in Frameworks */,
+				49D052F6210642C20019A6F3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +110,7 @@
 		49D052D421063A010019A6F3 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				49D052EE2106422B0019A6F3 /* Libraries */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -194,6 +207,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		49D052EE2106422B0019A6F3 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				49D052F5210642C20019A6F3 /* Alamofire.framework */,
+				49D052F3210642A40019A6F3 /* RxAlamofire.framework */,
+				49D052F1210642980019A6F3 /* RxSwift.framework */,
+				49D052EF2106425F0019A6F3 /* RxCocoa.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,6 +228,7 @@
 				49D052B52106388E0019A6F3 /* Sources */,
 				49D052B62106388E0019A6F3 /* Frameworks */,
 				49D052B72106388E0019A6F3 /* Resources */,
+				49D052F72106437A0019A6F3 /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -258,6 +283,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49D052F72106437A0019A6F3 /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxAlamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			name = "Carthage Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49D052B52106388E0019A6F3 /* Sources */ = {
@@ -410,6 +456,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GQU3QL4RG3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArticleReviews/Commons/Libraries",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/ArticleReviews/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -428,6 +478,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GQU3QL4RG3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArticleReviews/Commons/Libraries",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/ArticleReviews/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
