@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4917ADB321064F840050A5A8 /* InternetConnectionHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917ADB221064F840050A5A8 /* InternetConnectionHandlerTests.swift */; };
+		4917ADB82106539C0050A5A8 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917ADB72106539C0050A5A8 /* PersistenceService.swift */; };
+		4917ADBB2106552C0050A5A8 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917ADB92106552C0050A5A8 /* Article+CoreDataClass.swift */; };
+		4917ADBC2106552C0050A5A8 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917ADBA2106552C0050A5A8 /* Article+CoreDataProperties.swift */; };
 		49D052BD2106388E0019A6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D052BC2106388E0019A6F3 /* AppDelegate.swift */; };
 		49D052C52106388E0019A6F3 /* ArticleReviews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49D052C32106388E0019A6F3 /* ArticleReviews.xcdatamodeld */; };
 		49D052C7210638900019A6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49D052C6210638900019A6F3 /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 
 /* Begin PBXFileReference section */
 		4917ADB221064F840050A5A8 /* InternetConnectionHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionHandlerTests.swift; sourceTree = "<group>"; };
+		4917ADB72106539C0050A5A8 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		4917ADB92106552C0050A5A8 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4917ADBA2106552C0050A5A8 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49D052B92106388E0019A6F3 /* ArticleReviews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleReviews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D052BC2106388E0019A6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D052C42106388E0019A6F3 /* ArticleReviews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArticleReviews.xcdatamodel; sourceTree = "<group>"; };
@@ -112,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4917ADBD210655300050A5A8 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				4917ADB92106552C0050A5A8 /* Article+CoreDataClass.swift */,
+				4917ADBA2106552C0050A5A8 /* Article+CoreDataProperties.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
 		49D052B02106388E0019A6F3 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +161,7 @@
 		49D052D2210639F30019A6F3 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				4917ADB72106539C0050A5A8 /* PersistenceService.swift */,
 				49D052BC2106388E0019A6F3 /* AppDelegate.swift */,
 				49D052C8210638900019A6F3 /* LaunchScreen.storyboard */,
 				49D052CB210638900019A6F3 /* Info.plist */,
@@ -185,6 +201,7 @@
 			children = (
 				49D052DB21063CE80019A6F3 /* Infrastructure */,
 				49D052DA21063CE10019A6F3 /* NetworkRequest */,
+				4917ADBD210655300050A5A8 /* LocalStorage */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -420,9 +437,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49D052E221063D580019A6F3 /* InfrastructureHandler.swift in Sources */,
+				4917ADB82106539C0050A5A8 /* PersistenceService.swift in Sources */,
 				49D052E021063D3D0019A6F3 /* ServiceError.swift in Sources */,
 				49D052D921063B0E0019A6F3 /* Articles.swift in Sources */,
+				4917ADBB2106552C0050A5A8 /* Article+CoreDataClass.swift in Sources */,
 				49D052E721063D990019A6F3 /* InternetConnectionHandler.swift in Sources */,
+				4917ADBC2106552C0050A5A8 /* Article+CoreDataProperties.swift in Sources */,
 				49D052E521063D750019A6F3 /* InternetConnectionError.swift in Sources */,
 				49D052FB210646740019A6F3 /* ArticleWebService.swift in Sources */,
 				49D052C52106388E0019A6F3 /* ArticleReviews.xcdatamodeld in Sources */,
