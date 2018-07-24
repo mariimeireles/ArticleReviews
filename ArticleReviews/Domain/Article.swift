@@ -1,6 +1,6 @@
 
 
-struct Articles: Codable {
+struct Article: Codable {
     let embedded: EmbeddedDetails
     
     struct EmbeddedDetails: Codable {

@@ -4,5 +4,5 @@ import RxSwift
 
 protocol ArticleWebServiceProtocol: AnyObject {
     
-    func getArticles() -> Observable<Articles>
+    func getArticles() -> Observable<Article>
 }
