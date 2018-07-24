@@ -1,9 +1,16 @@
-//
-//  ArticlesScreenState.swift
-//  ArticleReviews
-//
-//  Created by Mariana Meireles on 24/07/18.
-//  Copyright © 2018 Mariana Meireles. All rights reserved.
-//
 
-import Foundation
+
+enum ArticlesScreenState {
+    case loading
+    case success([ArticleEntity])
+    case failure(ArticlesScreenErrorType)
+
+    init(restError: RESTError) {
+        switch restError {
+        case .serverError:
+            self = .failure(.serverError)
+        default:
+            self = .failure(.unknown)
+        }
+    }
+}
