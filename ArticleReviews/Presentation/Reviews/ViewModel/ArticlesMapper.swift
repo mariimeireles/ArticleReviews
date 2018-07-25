@@ -43,10 +43,24 @@ final class ArticlesMapper {
     private func retriveEntitiesFromCoreData() -> ArticlesScreenState {
         let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
         do {
-            let articleEntity = try PersistenceService.context.fetch(fetchRequest)
-            return ArticlesScreenState.success(articleEntity)
+            let articleEntities = try PersistenceService.context.fetch(fetchRequest)
+            return checkForReviewedArticles(articleEntities)
         } catch {
             return ArticlesScreenState.failure(.unknown)
+        }
+    }
+    
+    func checkForReviewedArticles(_ articleEntities: [ArticleEntity]) -> ArticlesScreenState {
+        var articles = [ArticleEntity]()
+        for entity in articleEntities {
+            if entity.isReviewed == false {
+                articles.append(entity)
+            }
+        }
+        if articles.isEmpty {
+            return ArticlesScreenState.successWithNoArticles
+        } else {
+            return ArticlesScreenState.success(articles)
         }
     }
     

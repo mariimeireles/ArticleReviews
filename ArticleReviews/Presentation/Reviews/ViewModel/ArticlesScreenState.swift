@@ -3,6 +3,7 @@
 enum ArticlesScreenState {
     case loading
     case success([ArticleEntity])
+    case successWithNoArticles
     case failure(ArticlesScreenErrorType)
 
     init(restError: RESTError) {
