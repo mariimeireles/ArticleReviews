@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		490F569E2107980A00BE84D2 /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F569D2107980A00BE84D2 /* ArticlesViewModel.swift */; };
+		490F56AC2108A55D00BE84D2 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F56AA2108A55D00BE84D2 /* StartViewController.swift */; };
+		490F56AD2108A55D00BE84D2 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490F56AB2108A55D00BE84D2 /* StartViewController.xib */; };
 		4917ADB321064F840050A5A8 /* InternetConnectionHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917ADB221064F840050A5A8 /* InternetConnectionHandlerTests.swift */; };
 		4917ADB82106539C0050A5A8 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917ADB72106539C0050A5A8 /* PersistenceService.swift */; };
 		4917ADC1210655C40050A5A8 /* ArticlesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917ADC0210655C40050A5A8 /* ArticlesMapper.swift */; };
@@ -69,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		490F569D2107980A00BE84D2 /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
+		490F56AA2108A55D00BE84D2 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		490F56AB2108A55D00BE84D2 /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
 		4917ADB221064F840050A5A8 /* InternetConnectionHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionHandlerTests.swift; sourceTree = "<group>"; };
 		4917ADB72106539C0050A5A8 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		4917ADC0210655C40050A5A8 /* ArticlesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesMapper.swift; sourceTree = "<group>"; };
@@ -128,6 +132,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490F56A82108A53B00BE84D2 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				490F56A92108A54100BE84D2 /* View */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		490F56A92108A54100BE84D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				490F56AA2108A55D00BE84D2 /* StartViewController.swift */,
+				490F56AB2108A55D00BE84D2 /* StartViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4917ADBD210655300050A5A8 /* LocalStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +240,7 @@
 		49D052D521063A0C0019A6F3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				49D052E821063DF80019A6F3 /* Start */,
+				490F56A82108A53B00BE84D2 /* Start */,
 				49D052E921063E3A0019A6F3 /* Selection */,
 				49D052EA21063E410019A6F3 /* Reviews */,
 			);
@@ -279,13 +300,6 @@
 				49D052E621063D990019A6F3 /* InternetConnectionHandler.swift */,
 			);
 			path = InternetConnection;
-			sourceTree = "<group>";
-		};
-		49D052E821063DF80019A6F3 /* Start */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Start;
 			sourceTree = "<group>";
 		};
 		49D052E921063E3A0019A6F3 /* Selection */ = {
@@ -429,6 +443,7 @@
 			files = (
 				49D052CA210638900019A6F3 /* LaunchScreen.storyboard in Resources */,
 				49D052C7210638900019A6F3 /* Assets.xcassets in Resources */,
+				490F56AD2108A55D00BE84D2 /* StartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +487,7 @@
 				4917ADB82106539C0050A5A8 /* PersistenceService.swift in Sources */,
 				49D052E021063D3D0019A6F3 /* ServiceError.swift in Sources */,
 				49D052D921063B0E0019A6F3 /* Article.swift in Sources */,
+				490F56AC2108A55D00BE84D2 /* StartViewController.swift in Sources */,
 				491C37B72107798C0072E342 /* ArticleEntity+CoreDataClass.swift in Sources */,
 				4917ADC1210655C40050A5A8 /* ArticlesMapper.swift in Sources */,
 				49D052E721063D990019A6F3 /* InternetConnectionHandler.swift in Sources */,
