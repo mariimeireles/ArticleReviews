@@ -33,7 +33,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="8Eq-Vm-ywd" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="8fe-Op-uf3"/>
                 <constraint firstItem="8Eq-Vm-ywd" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="0.8" id="Pr6-9f-h8b"/>
