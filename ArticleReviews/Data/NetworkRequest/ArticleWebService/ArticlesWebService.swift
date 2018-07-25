@@ -5,7 +5,7 @@ import Foundation
 import RxAlamofire
 import RxSwift
 
-final class ArticleWebService: ArticleWebServiceProtocol {
+final class ArticleWebService: ArticlesWebServiceProtocol {
     
     private let getUrl = "https://api-mobile.home24.com/api/v2.0/categories/100/articles?appDomain=1&locale=de_DE&limit=10%E2%80%9D"
     

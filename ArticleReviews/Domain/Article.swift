@@ -3,6 +3,10 @@
 struct Article: Codable {
     let embedded: EmbeddedDetails
     
+    enum CodingKeys : String, CodingKey {
+        case embedded = "_embedded"
+    }
+    
     struct EmbeddedDetails: Codable {
         let articles: [ArticlesDetails]
     }

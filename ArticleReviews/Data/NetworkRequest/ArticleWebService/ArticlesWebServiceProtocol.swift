@@ -2,7 +2,7 @@
 
 import RxSwift
 
-protocol ArticleWebServiceProtocol: AnyObject {
+protocol ArticlesWebServiceProtocol: AnyObject {
     
     func getArticles() -> Observable<Article>
 }
