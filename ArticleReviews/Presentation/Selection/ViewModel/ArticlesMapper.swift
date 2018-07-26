@@ -17,15 +17,10 @@ final class ArticlesMapper {
     }
     
     private func checkEntitiesInCoreData(_ articleModel: ArticleModel) throws {
-        let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
         let sku = articleModel.sku
-        fetchRequest.predicate = NSPredicate(format: "sku == %@", sku)
-        fetchRequest.fetchLimit = 1
+        let fetchRequest = fetchRequestWith(sku: sku)
         do {
             let count = try PersistenceService.context.count(for: fetchRequest)
-            if count == NSNotFound {
-                throw ServiceError.internalServerError
-            }
             if count == 0 {
                 let articleEntity = ArticleEntity(context: PersistenceService.context)
                 articleEntity.image = UIImagePNGRepresentation(articleModel.image) as NSData?
@@ -40,6 +35,13 @@ final class ArticlesMapper {
         }
     }
     
+    func fetchRequestWith(sku: String) -> NSFetchRequest<ArticleEntity> {
+        let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "sku == %@", sku)
+        fetchRequest.fetchLimit = 1
+        return fetchRequest
+    }
+    
     private func retriveEntitiesFromCoreData() -> ArticlesScreenState {
         let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
         do {
@@ -51,16 +53,12 @@ final class ArticlesMapper {
     }
     
     func checkForReviewedArticles(_ articleEntities: [ArticleEntity]) -> ArticlesScreenState {
-        var articles = [ArticleEntity]()
-        for entity in articleEntities {
-            if entity.isReviewed == false {
-                articles.append(entity)
-            }
-        }
+        let articles = articleEntities.filter { $0.isReviewed == false }
+        let likedArticles = articleEntities.filter { $0.isLiked == true }
         if articles.isEmpty {
-            return ArticlesScreenState.successWithNoArticles
+            return ArticlesScreenState.successWithNoNewArticles(articleEntities.count, likedArticles.count)
         } else {
-            return ArticlesScreenState.success(articles)
+            return ArticlesScreenState.success(articles, articleEntities.count, likedArticles.count)
         }
     }
     

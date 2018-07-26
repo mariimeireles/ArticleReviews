@@ -1,13 +1,14 @@
 
 
+import CoreData
 import RxSwift
 
 final class ArticlesViewModel {
     
-    private let webService: ArticleWebServiceProtocol
+    private let webService: ArticlesWebServiceProtocol
     private let mapper: ArticlesMapper
     
-    init(webService: ArticleWebServiceProtocol, mapper: ArticlesMapper) {
+    init(webService: ArticlesWebServiceProtocol, mapper: ArticlesMapper) {
         self.webService = webService
         self.mapper = mapper
     }
@@ -27,5 +28,18 @@ final class ArticlesViewModel {
                 return Observable.just(state)
             }
     }
-
+    
+    func updateCoreData(sku: String, isLiked: Bool) {
+        let fetchRequest = mapper.fetchRequestWith(sku: sku)
+        do {
+            let articleEntities = try PersistenceService.context.fetch(fetchRequest)
+            for entity in articleEntities {
+                entity.isLiked = isLiked
+                entity.isReviewed = true
+                PersistenceService.saveContext()
+            }
+        } catch {
+            fatalError()
+        }
+    }
 }

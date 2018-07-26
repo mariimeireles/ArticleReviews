@@ -1,9 +1,18 @@
-//
-//  Injector.swift
-//  ArticleReviews
-//
-//  Created by Mariana Meireles on 25/07/18.
-//  Copyright © 2018 Mariana Meireles. All rights reserved.
-//
 
-import Foundation
+
+final class Injector {
+    
+    private let articlesMapper: ArticlesMapper
+    
+    init(articlesMapper: ArticlesMapper) {
+        self.articlesMapper = articlesMapper
+    }
+    
+    func articlesViewModel() -> ArticlesViewModel {
+        return ArticlesViewModel(webService: articlesWebService(), mapper: self.articlesMapper)
+    }
+    
+    func articlesWebService() -> ArticlesWebServiceProtocol {
+        return ArticlesWebService()
+    }
+}

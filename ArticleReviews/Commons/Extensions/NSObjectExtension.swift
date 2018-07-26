@@ -1,9 +1,11 @@
-//
-//  NSObjectExtension.swift
-//  ArticleReviews
-//
-//  Created by Mariana Meireles on 25/07/18.
-//  Copyright © 2018 Mariana Meireles. All rights reserved.
-//
 
-import Foundation
+
+import UIKit
+
+protocol Identifying {}
+
+extension Identifying where Self: NSObject {
+    static var identifier: String { return String(describing: self) }
+}
+
+extension NSObject: Identifying {}

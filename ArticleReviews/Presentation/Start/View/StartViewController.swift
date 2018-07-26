@@ -19,7 +19,7 @@ final class StartViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func startButton(_ sender: Any) {
+    @IBAction private func startButton(_ sender: Any) {
         let selectionViewController = SelectionViewController(viewModel: selectionViewModel)
         navigationController?.pushViewController(selectionViewController, animated: true)
     }

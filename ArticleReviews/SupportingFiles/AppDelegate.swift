@@ -4,17 +4,18 @@ import CoreData
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let startViewController = StartViewController()
+        let injector = Injector(articlesMapper: ArticlesMapper())
+        let startViewController = StartViewController(selectionViewModel: injector.articlesViewModel())
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = startViewController
+        window?.rootViewController = UINavigationController(rootViewController: startViewController)
         window?.makeKeyAndVisible()
         
         return true

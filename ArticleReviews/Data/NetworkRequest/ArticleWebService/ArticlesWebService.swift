@@ -5,7 +5,7 @@ import Foundation
 import RxAlamofire
 import RxSwift
 
-final class ArticleWebService: ArticlesWebServiceProtocol {
+final class ArticlesWebService: ArticlesWebServiceProtocol {
     
     private let getUrl = "https://api-mobile.home24.com/api/v2.0/categories/100/articles?appDomain=1&locale=de_DE&limit=10%E2%80%9D"
     
@@ -22,8 +22,8 @@ final class ArticleWebService: ArticlesWebServiceProtocol {
                 try internetHandler.verifyConnection(error)
             })
             .map({ (_, result) -> Article in
-                guard let data = try? JSONSerialization.data(withJSONObject: result, options: []) else { throw ServiceError.jsonParse }
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                guard let data = try? JSONSerialization.data(withJSONObject: result, options: []) else {
+                    throw ServiceError.jsonParse }
                 return try decoder.decode(Article.self, from: data)
             })
     }
