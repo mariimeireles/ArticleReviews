@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GridCell" customModule="ArticlesReview" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="166"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="166"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bEb-WO-Ibg">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="166"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likeButton" translatesAutoresizingMaskIntoConstraints="NO" id="S9J-NT-HA1">
+                        <rect key="frame" x="140" y="126" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="aSs-NZ-ykg"/>
+                            <constraint firstAttribute="width" constant="35" id="mIr-rx-SkI"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="bEb-WO-Ibg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IyQ-Xc-1cf"/>
+                <constraint firstItem="S9J-NT-HA1" firstAttribute="bottom" secondItem="bEb-WO-Ibg" secondAttribute="bottom" constant="-5" id="K4u-ll-dbq"/>
+                <constraint firstAttribute="bottom" secondItem="bEb-WO-Ibg" secondAttribute="bottom" id="Xbb-nU-Udq"/>
+                <constraint firstItem="bEb-WO-Ibg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fyV-Ib-zSZ"/>
+                <constraint firstItem="S9J-NT-HA1" firstAttribute="trailing" secondItem="bEb-WO-Ibg" secondAttribute="trailing" constant="-5" id="rzi-Eg-69y"/>
+                <constraint firstAttribute="trailing" secondItem="bEb-WO-Ibg" secondAttribute="trailing" id="tUG-4F-SF9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="180" height="166"/>
+            <connections>
+                <outlet property="articleImage" destination="bEb-WO-Ibg" id="2Pc-8S-CCe"/>
+                <outlet property="likedMark" destination="S9J-NT-HA1" id="Kqv-Y3-z21"/>
+            </connections>
+            <point key="canvasLocation" x="99" y="112"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="likeButton" width="90" height="90"/>
+    </resources>
+</document>
