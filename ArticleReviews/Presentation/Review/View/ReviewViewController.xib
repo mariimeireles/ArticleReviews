@@ -1,13 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReviewViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReviewViewController" customModule="ArticleReviews" customModuleProvider="target">
             <connections>
+                <outlet property="gridButton" destination="w68-ro-OME" id="YaE-GD-Hzt"/>
+                <outlet property="gridView" destination="U8b-yr-XAa" id="HAB-DS-WfX"/>
+                <outlet property="listButton" destination="sSE-vS-CAO" id="57K-wy-4ns"/>
+                <outlet property="listView" destination="SOq-ya-a6f" id="aOy-nt-hcg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +24,62 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSE-vS-CAO" userLabel="List Button">
+                    <rect key="frame" x="0.0" y="20" width="187.5" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.14117647059999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="RrT-Ce-9ZY"/>
+                    </constraints>
+                    <state key="normal" image="listButton"/>
+                    <connections>
+                        <action selector="listButton:" destination="-1" eventType="touchUpInside" id="i1a-jU-f7M"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w68-ro-OME" userLabel="Grid Button">
+                    <rect key="frame" x="187.5" y="20" width="187.5" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.14117647059999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="O8Q-4U-V2o"/>
+                    </constraints>
+                    <state key="normal" image="gridButton"/>
+                    <connections>
+                        <action selector="gridButton:" destination="-1" eventType="touchUpInside" id="PKe-In-ism"/>
+                    </connections>
+                </button>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8b-yr-XAa" customClass="GridView" customModule="ArticleReviews" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOq-ya-a6f" customClass="ListView" customModule="ArticleReviews" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="w68-ro-OME" firstAttribute="leading" secondItem="sSE-vS-CAO" secondAttribute="trailing" id="0of-F9-iAI"/>
+                <constraint firstItem="U8b-yr-XAa" firstAttribute="top" secondItem="w68-ro-OME" secondAttribute="bottom" id="2NA-6h-aCe"/>
+                <constraint firstItem="SOq-ya-a6f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8Gn-32-Pwu"/>
+                <constraint firstItem="sSE-vS-CAO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BR6-vQ-y0n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U8b-yr-XAa" secondAttribute="bottom" id="Hvo-Xz-mzG"/>
+                <constraint firstItem="sSE-vS-CAO" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="OSR-hz-9ix"/>
+                <constraint firstItem="w68-ro-OME" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RuV-kw-vW7"/>
+                <constraint firstItem="SOq-ya-a6f" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="f0p-xE-m1c"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SOq-ya-a6f" secondAttribute="bottom" id="jOU-Lh-Hcl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w68-ro-OME" secondAttribute="trailing" id="ntv-G8-Oa8"/>
+                <constraint firstItem="U8b-yr-XAa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oKy-SD-QvF"/>
+                <constraint firstItem="sSE-vS-CAO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="u17-jh-v3c"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U8b-yr-XAa" secondAttribute="trailing" id="vse-Yk-uAh"/>
+                <constraint firstItem="w68-ro-OME" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="xVa-35-hnD"/>
+                <constraint firstItem="SOq-ya-a6f" firstAttribute="top" secondItem="w68-ro-OME" secondAttribute="bottom" id="zzs-Si-F3P"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="gridButton" width="33" height="33"/>
+        <image name="listButton" width="47" height="26"/>
+    </resources>
 </document>
