@@ -1,7 +1,7 @@
 
 
-import Nimble
 @testable import ArticleReviews
+import Nimble
 import XCTest
 
 final class InfrastructureHandlerTests: XCTestCase {
@@ -15,11 +15,11 @@ final class InfrastructureHandlerTests: XCTestCase {
     private func verify(response: HTTPURLResponse, equalTo expectedError: RESTError) {
         expect {
             try self.infrastructureHandler.verifyStatusCode(response)
-            }.to(throwError(closure: { (error: ServiceError) in
-                if case let .rest(error) = error {
-                    expect(error).to(equal(expectedError))
-                } else { fail() }
-            }))
+        }.to(throwError(closure: { (error: ServiceError) in
+            if case let .rest(error) = error {
+                expect(error).to(equal(expectedError))
+            } else { fail() }
+        }))
     }
     
     override func setUp() {
@@ -46,16 +46,16 @@ final class InfrastructureHandlerTests: XCTestCase {
         let response = getResponseFor(statusCode: 599)
         expect {
             try self.infrastructureHandler.verifyStatusCode(response)
-            }.to(throwError { (error: ServiceError) in
-                expect(error).to(equal(ServiceError.internalServerError))
-            })
+        }.to(throwError { (error: ServiceError) in
+            expect(error).to(equal(ServiceError.internalServerError))
+        })
     }
     
     func test_shouldNotThrow_error_when_statusCodeIs_200() {
         let response = getResponseFor(statusCode: 200)
         expect {
             try self.infrastructureHandler.verifyStatusCode(response)
-            }.toNot(throwError())
+        }.toNot(throwError())
     }
 }
 

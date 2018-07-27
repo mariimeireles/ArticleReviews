@@ -6,17 +6,19 @@ import UIKit
 final class SelectionViewController: UIViewController, SelectionViewDelegate {
     
     private let viewModel: ArticlesViewModel
+    private let reviewViewModel: ReviewViewModel
     private let disposeBag = DisposeBag()
     private var numberOfEntities = 0
     private var likedEntities = 0
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var warningLabel: UILabel!
-    @IBOutlet weak private var likedArticlesCounter: UILabel!
+    @IBOutlet private var likedArticlesCounter: UILabel!
     @IBOutlet private var selectionView: SelectionView!
     @IBOutlet private var reviewButton: UIButton!
     
-    init(viewModel: ArticlesViewModel) {
+    init(viewModel: ArticlesViewModel, reviewViewModel: ReviewViewModel) {
         self.viewModel = viewModel
+        self.reviewViewModel = reviewViewModel
         super.init(nibName: SelectionViewController.identifier, bundle: Bundle.main)
     }
     
@@ -38,30 +40,29 @@ final class SelectionViewController: UIViewController, SelectionViewDelegate {
     private func render(_ state: ArticlesScreenState) {
         switch state {
         case .loading:
-            suportingElements(showActivityIndicator: true, reviewButtonState: .invisible, showCounter: false)
+            supportingElements(showActivityIndicator: true, reviewButtonState: .invisible, showCounter: false)
         case let .success(entities, numberOfEntities, likedEntities):
-            print(numberOfEntities)
-            print(likedEntities)
             self.numberOfEntities = numberOfEntities
             self.likedEntities = likedEntities
             likedArticlesCounter.text = "\(self.likedEntities)/\(self.numberOfEntities)"
-            suportingElements(showActivityIndicator: false, reviewButtonState: .disabled, showCounter: true)
+            supportingElements(showActivityIndicator: false, reviewButtonState: .disabled, showCounter: true)
             selectionView.articleEntities = entities
             selectionView.viewModel = viewModel
             selectionView.delegate = self
             selectionView.alpha = 1
         case let .successWithNoNewArticles(numberOfEntities, likedEntities):
-            print(numberOfEntities)
-            print(likedEntities)
-            suportingElements(showActivityIndicator: false, reviewButtonState: .enabled, showCounter: true)
+            self.numberOfEntities = numberOfEntities
+            self.likedEntities = likedEntities
+            likedArticlesCounter.text = "\(self.likedEntities)/\(self.numberOfEntities)"
+            supportingElements(showActivityIndicator: false, reviewButtonState: .enabled, showCounter: true)
             warningLabel.alpha = 1
         case let .failure(error):
-            suportingElements(showActivityIndicator: false, reviewButtonState: .invisible, showCounter: false)
+            supportingElements(showActivityIndicator: false, reviewButtonState: .invisible, showCounter: false)
             showFailure(for: error)
         }
     }
     
-    private func suportingElements(showActivityIndicator: Bool, reviewButtonState: ReviewButtonState, showCounter: Bool) {
+    private func supportingElements(showActivityIndicator: Bool, reviewButtonState: ReviewButtonState, showCounter: Bool) {
         activityIndicator.alpha = showActivityIndicator ? 1 : 0
         likedArticlesCounter.alpha = showCounter ? 1 : 0
         switch reviewButtonState {
@@ -91,17 +92,19 @@ final class SelectionViewController: UIViewController, SelectionViewDelegate {
     }
     
     func endOfIndex() {
-        selectionView.alpha = 0
-        warningLabel.alpha = 1
-        reviewButton(true)
+        self.reviewButton(isEnabled: true)
+        self.selectionView.alpha = 0
+        self.warningLabel.alpha = 1
     }
     
-    func articleLiked(2) {
+    func articleLiked() {
         likedEntities += 1
         likedArticlesCounter.text = "\(likedEntities)/\(numberOfEntities)"
     }
     
     @IBAction func reviewButton(_ sender: Any) {
+        let reviewViewController = ReviewViewController(viewModel: reviewViewModel)
+        navigationController?.pushViewController(reviewViewController, animated: true)
     }
     
     private func presentNoConnectionError() {

@@ -3,7 +3,7 @@
 struct Article: Codable {
     let embedded: EmbeddedDetails
     
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case embedded = "_embedded"
     }
     

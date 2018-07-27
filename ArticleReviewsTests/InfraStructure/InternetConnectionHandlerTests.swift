@@ -1,7 +1,7 @@
 
 
-import Nimble
 @testable import ArticleReviews
+import Nimble
 import XCTest
 
 final class InternetConnectionHandlerTests: XCTestCase {
@@ -21,11 +21,11 @@ final class InternetConnectionHandlerTests: XCTestCase {
     private func verifyError(_ error: URLError.Code, equalTo expectedError: InternetConnectionError) {
         expect {
             try self.verifyConnectionMock(error)
-            }.to(throwError(closure: { (error: ServiceError) in
-                if case let .connection(noConnection) = error {
-                    expect(noConnection).to(equal(expectedError))
-                } else { fail() }
-            }))
+        }.to(throwError(closure: { (error: ServiceError) in
+            if case let .connection(noConnection) = error {
+                expect(noConnection).to(equal(expectedError))
+            } else { fail() }
+        }))
     }
     
     override func setUp() {

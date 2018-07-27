@@ -5,9 +5,11 @@ import UIKit
 final class StartViewController: UIViewController {
     
     private let selectionViewModel: ArticlesViewModel
+    private let reviewViewModel: ReviewViewModel
     
-    init(selectionViewModel: ArticlesViewModel) {
+    init(selectionViewModel: ArticlesViewModel, reviewViewModel: ReviewViewModel) {
         self.selectionViewModel = selectionViewModel
+        self.reviewViewModel = reviewViewModel
         super.init(nibName: StartViewController.identifier, bundle: Bundle.main)
     }
     
@@ -20,7 +22,7 @@ final class StartViewController: UIViewController {
     }
     
     @IBAction private func startButton(_ sender: Any) {
-        let selectionViewController = SelectionViewController(viewModel: selectionViewModel)
+        let selectionViewController = SelectionViewController(viewModel: selectionViewModel, reviewViewModel: reviewViewModel)
         navigationController?.pushViewController(selectionViewController, animated: true)
     }
 }

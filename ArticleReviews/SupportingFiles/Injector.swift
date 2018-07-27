@@ -15,4 +15,8 @@ final class Injector {
     func articlesWebService() -> ArticlesWebServiceProtocol {
         return ArticlesWebService()
     }
+    
+    func reviewViewModel() -> ReviewViewModel {
+        return ReviewViewModel()
+    }
 }

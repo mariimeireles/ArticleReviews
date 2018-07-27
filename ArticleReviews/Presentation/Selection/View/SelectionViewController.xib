@@ -48,8 +48,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="EYU-aQ-03p">
-                    <rect key="frame" x="169" y="222" width="37" height="37"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EYU-aQ-03p">
+                    <rect key="frame" x="178" y="231" width="20" height="20"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71P-AJ-PuW">
                     <rect key="frame" x="94" y="40" width="187.5" height="23"/>
@@ -58,7 +58,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyO-Dc-gXG" customClass="SelectionView" customModule="ArticleReviews" customModuleProvider="target">
-                    <rect key="frame" x="38" y="73" width="300" height="467"/>
+                    <rect key="frame" x="38" y="73" width="300" height="487.5"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </subviews>
@@ -79,8 +79,8 @@
                 <constraint firstItem="jyO-Dc-gXG" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="eWp-7p-iTh"/>
                 <constraint firstItem="Nzd-fD-eQU" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="f9g-VG-nJp"/>
                 <constraint firstItem="eTQ-XU-Vfb" firstAttribute="leading" secondItem="jyO-Dc-gXG" secondAttribute="leading" id="kDl-Iw-YhW"/>
+                <constraint firstItem="eTQ-XU-Vfb" firstAttribute="top" secondItem="jyO-Dc-gXG" secondAttribute="bottom" constant="30" id="rjS-9d-5cm"/>
                 <constraint firstItem="jyO-Dc-gXG" firstAttribute="top" secondItem="71P-AJ-PuW" secondAttribute="bottom" constant="10" id="tJi-vc-vlj"/>
-                <constraint firstItem="jyO-Dc-gXG" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.7" id="yGC-qP-x8X"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="63.5"/>

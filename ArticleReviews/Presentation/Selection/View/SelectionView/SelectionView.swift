@@ -32,25 +32,25 @@ final class SelectionView: UIView {
         addSubview(selectionContentView)
         selectionContentView.frame = self.bounds
     }
-    
+
     private func fillOutlets() {
         guard let articleEntities = articleEntities else { return }
         DispatchQueue.main.async {
             self.articleImage.image = UIImage().load(data: articleEntities[self.index].image! as Data)
         }
     }
-    
+
     @IBAction private func likeButton(_ sender: Any) {
         delegate?.articleLiked()
         updateCoreData(isLiked: true)
         changeIndex()
     }
-    
+
     @IBAction private func dislikeButton(_ sender: Any) {
         updateCoreData(isLiked: false)
         changeIndex()
     }
-    
+
     private func changeIndex() {
         guard let articleEntities = articleEntities else { return }
         let arraySize = articleEntities.count
@@ -61,7 +61,7 @@ final class SelectionView: UIView {
             delegate?.endOfIndex()
         }
     }
-    
+
     private func updateCoreData(isLiked: Bool) {
         guard let articleEntities = articleEntities else { return }
         guard let viewModel = viewModel else { return }

@@ -1,8 +1,7 @@
 
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension ArticleEntity {
 
@@ -15,5 +14,4 @@ extension ArticleEntity {
     @NSManaged public var isReviewed: Bool
     @NSManaged public var sku: String?
     @NSManaged public var title: String?
-
 }
